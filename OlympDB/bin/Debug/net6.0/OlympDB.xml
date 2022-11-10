@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OlympDB</name>
+    </assembly>
+    <members>
+        <member name="M:OlympDB.Controllers.OlympController.Regenerate(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Генерация данных в БД с заданным количеством записей
+            </summary>
+            <param name="countries">Количество генерируемых стран</param>
+            <param name="olymps">Количество генерируемых олимпиад</param>
+            <param name="players">Количество генерируемых игроков</param>
+            <param name="events">Количество генерируемых соревнований</param>
+            <param name="results">Количество генерируемых результатов</param>
+            <response code="200">Данные сгенерированы, возвращается общая информация о них</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.GetInfo">
+            <summary>
+            Информация о количестве записей в каждой из таблиц
+            </summary>
+            <response code="200">Информация о сгенерированных данных</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.ClearData">
+            <summary>
+            Очистка всех данных 
+            </summary>
+            <response code="200">Все таблицы очищены</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.GetCountries">
+            <summary>
+            Данные из таблицы стран
+            </summary>
+            <response code="200">Список стран в формате json</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.GetOlympics">
+            <summary>
+            Данные из таблицы олимпиад
+            </summary>
+            <response code="200">Список олимпиад в формате json</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.GetPlayers">
+            <summary>
+            Данные из таблицы игроков
+            </summary>
+            <response code="200">Список игроков в формате json</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.GetEvents">
+            <summary>
+            Данные из таблицы соревнований
+            </summary>
+            <response code="200">Список соревнований в формате json</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.GetResults">
+            <summary>
+            Данные из таблицы результатов
+            </summary>
+            <response code="200">Список результатов в формате json</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.PrintInfo">
+            <summary>
+            Приватный метод для вывода информации о таблицах
+            </summary>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.GetPlayersList(System.Nullable{System.Int32})">
+            <summary>
+            Task 1
+            Для Олимпийских игр заданного года сгенерируйте список (год рождения, количество игроков, количество золотых медалей), 
+            содержащий годы, в которые родились игроки, количество игроков, родившихся в каждый из этих лет, которые выиграли 
+            по крайней мере одну золотую медаль, и количество золотых медалей, завоеванных игроками, родившимися в этом году
+            </summary>
+            <param name="year">Год олимпиады, по-умолчанию год первой олимпиады из БД</param>
+            <response code="200">Результат задания 1</response>
+            <response code="404">Олимпиады с заданным годом проведения не найдены</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.GetEventsDraw">
+            <summary>
+            Task 2
+            Перечислите все индивидуальные (не групповые) соревнования, в которых была ничья в счете, 
+            и два или более игрока выиграли золотую медаль
+            </summary>
+            <response code="200">Результат задания 2</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.GetPlayersWithMedals">
+            <summary>
+            Task 3
+            Найдите всех игроков, которые выиграли хотя бы одну медаль (GOLD, SILVER и BRONZE)
+            </summary>
+            <response code="200">Результат задания 3</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.GetCountryWithVowelPlayers">
+            <summary>
+            Task 4
+            В какой стране был наибольший процент игроков, чьи имена начинались с гласной?
+            </summary>
+            <response code="200">Результат задания 4</response>
+        </member>
+        <member name="M:OlympDB.Controllers.OlympController.GetCountriesWithLessMedalPopulationPercentage(System.Nullable{System.Int32})">
+            <summary>
+            Task 5
+            Для Олимпийских игр заданного года найдите 5 стран с минимальным соотношением количества групповых медалей к численности населения.
+            </summary>
+            <param name="year">Год олимпиады, по-умолчанию год первой олимпиады из БД</param>
+            <response code="200">Результат задания 5</response>
+            <response code="404">Олимпиады с заданным годом проведения не найдены</response>
+        </member>
+        <member name="M:OlympDB.Database.OlympDbRepository.GetOlympicPlayersListAtYear(System.Int32)">
+            <summary>
+            Task 1
+            Для Олимпийских игр заданного года сгенерируйте список (год рождения, количество игроков, количество золотых медалей), 
+            содержащий годы, в которые родились игроки, количество игроков, родившихся в каждый из этих лет, которые выиграли 
+            по крайней мере одну золотую медаль, и количество золотых медалей, завоеванных игроками, родившимися в этом году
+            </summary>
+            <param name="year">Year for olympic games</param>
+            <returns></returns>
+        </member>
+        <member name="M:OlympDB.Database.OlympDbRepository.GetIndividualEventsWithDrawAndMoreThanTwoGolds">
+            <summary>
+            Task 2
+            Перечислите все индивидуальные (не групповые) соревнования, в которых была ничья в счете, 
+            и два или более игрока выиграли золотую медаль
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OlympDB.Database.OlympDbRepository.GetPlayersWithUsefulMedals">
+            <summary>
+            Task 3
+            Найдите всех игроков, которые выиграли хотя бы одну медаль (GOLD, SILVER и BRONZE)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OlympDB.Database.OlympDbRepository.GetCountryWithMostVowelNamePlayers">
+            <summary>
+            Task 4
+            В какой стране был наибольший процент игроков, чьи имена начинались с гласной?
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OlympDB.Database.OlympDbRepository.GetCountriesWithLessMedalPopulationPercentageAtYear(System.Int32)">
+            <summary>
+            Task 5
+            Для Олимпийских игр данного года найдите 10 стран с минимальным соотношением количества групповых медалей к численности населения.
+            </summary>
+            <param name="year">Year for olympic games</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:OlympDB.Database.OlympDbRepository.GenerateData(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Generating data with several amount of values
+            </summary>
+            <param name="cCountries">Amount of countries to generate</param>
+            <param name="cOlympics">Amount of Olympic games to generate</param>
+            <param name="cPlayers">Amount of players to generate</param>
+            <param name="cEvents">Amount of events to generate</param>
+            <param name="cResults">Amount of results to generate</param>
+        </member>
+        <member name="M:OlympDB.Database.OlympDbRepository.ClearAllData">
+            <summary>
+            Clearing data from DB
+            </summary>
+        </member>
+        <member name="T:OlympDB.Migrations.init">
+            <inheritdoc />
+        </member>
+        <member name="M:OlympDB.Migrations.init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OlympDB.Migrations.init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OlympDB.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
